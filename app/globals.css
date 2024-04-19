@@ -31,3 +31,45 @@ body {
     text-wrap: balance;
   }
 }
+.pasar {
+  animation-name: pasa;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+.pasar2 {
+  animation-name: pasa2;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+.pasar3 {
+  animation-name: pasa3;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+.pasar4 {
+  animation-name: pasa4;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+.nose{
+  width: 0vh;
+  height: 0vh;
+  background-color: red;
+}
+
+@keyframes pasa {
+  from {display: flex;transform: rotate(12deg);}
+  to {display: none;transform: rotate(0deg);}
+}
+@keyframes pasa2 {
+  from {display: none;}
+  to {display: flex;}
+}
+@keyframes pasa3 {
+  from {display: none;transform: rotate(0deg);}
+  to {display: flex;transform: rotate(12deg);}
+}
+@keyframes pasa4 {
+  from {display: flex;}
+  to {display: none;}
+}
