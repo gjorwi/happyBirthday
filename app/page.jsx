@@ -41,7 +41,7 @@ export default function Home() {
     <main className="flex h-screen overflow-hidden flex-col items-center justify-between bg-rose-300">
       <div className={"  drop-shadow-[4px_8px_1px_rgba(0,0,0,0.1)] relative flex h-full items-center"}>
         {/* {!isOpen&& */}
-          <button onClick={()=>abrir(isOpen<2?isOpen+1:0)} className={(IsMoreWidth?' top-[420px] -right-14 ':(isOpen==2?' top-[520px] right-0 ':' top-[420px] right-0 '))+" absolute  z-30 rotate-12  bg-rose-600 rounded-lg py-3 border-4 border-white px-6"}>{isOpen==0?'Abrir':isOpen==1?'Siguiente':'Cerrar'}</button>
+          <button onClick={()=>abrir(isOpen<2?isOpen+1:0)} className={(IsMoreWidth?' top-[420px] -right-14 ':(isOpen==2?' top-[600px] right-0 ':' top-[600px] right-0 '))+" absolute  z-30 rotate-12  bg-rose-600 rounded-lg py-3 border-4 border-white px-6"}>{isOpen==0?'Abrir':isOpen==1?'Siguiente':'Cerrar'}</button>
         {/* } */}
         <Image
           src="/img/cumpleaños.jpg"
