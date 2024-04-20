@@ -2,26 +2,38 @@
 import Image from "next/image";
 import {fotos} from "@/utils/objetos";
 import { useEffect, useState } from "react";
+import Realistic from "react-canvas-confetti/dist/presets/realistic";
+import Pride from "react-canvas-confetti/dist/presets/pride";
 
 export default function Home() {
   const [isOpen,setIsOpen]=useState(0)
   const [isStarted,setIsStarted]=useState(false)
   // const [count,setCount]=useState(1)
   const [width,setWidth]=useState(0)
+  const [conductorC,setConductorC]=useState(0)
+  const [conductorC2,setConductorC2]=useState(0)
   const [foto,setFoto]=useState(fotos[0].hre)
   const [IsMoreWidth,setIsMoreWidth]=useState(true)
 
   useEffect(()=>{
     const tempIsMoreWidth=screen.width>screen.height
     setIsMoreWidth(tempIsMoreWidth)
-    window.onload = function() {
-      var context = new AudioContext();
-    }
+    
     // alert(tempIsMoreWidth)
   },[])
 
   const abrir=(val)=>{
     setIsOpen(val)
+    setTimeout(()=>{
+      let count=0
+      setInterval(()=>{
+        if(count<10){
+          onShoot2()
+          count++
+        }
+      },50)
+    }, 1000)
+    
   }
   const start=()=>{
     setIsStarted(true)
@@ -36,13 +48,36 @@ export default function Home() {
     },6000)
   }
 
+  const onInitHandler = ({ conductor }) => {
+    setConductorC(conductor)
+    conductor.shoot();
+    setTimeout(()=>{
+      conductor.shoot();
+    }, 1000)
+  };
+  const onInitHandler2 = ({ conductor }) => {
+    setConductorC2(conductor)
+  };
+  const onShoot = () => {
+    // alert("hola")
+    conductorC.shoot();
+  };
+  const onShoot2 = () => {
+    // alert("hola")
+    conductorC2.shoot();
+  };
+
 
   return (
     <main className="flex h-screen overflow-hidden flex-col items-center justify-between bg-rose-300">
       <div className={"  drop-shadow-[4px_8px_1px_rgba(0,0,0,0.1)] relative flex h-full items-center"}>
         {/* {!isOpen&& */}
-          <button onClick={()=>abrir(isOpen<2?isOpen+1:0)} className={(IsMoreWidth?' top-[420px] -right-14 ':(isOpen==2?' top-[650px] right-0 ':' top-[650px] right-0 '))+" absolute  z-30 rotate-12  bg-rose-600 rounded-lg py-3 border-4 border-white px-6"}>{isOpen==0?'Abrir':isOpen==1?'Siguiente':'Cerrar'}</button>
+          <button onClick={()=>abrir(isOpen<2?isOpen+1:0)} className={(IsMoreWidth?' top-[420px] -right-14 ':(isOpen==2?' top-[70vh] right-0 ':' top-[70vh] -right-5 '))+" absolute  z-50 rotate-12  bg-rose-600 rounded-lg py-3 border-4 border-white px-6"}>{isOpen==0?'Abrir':isOpen==1?'Siguiente':'Cerrar'}</button>
         {/* } */}
+        
+        <Realistic className="absolute bottom-0 z-40 w-[400px] h-[100vh]" onInit={onInitHandler} />
+        <Pride className="absolute bottom-0 z-40 w-[400px] h-[100vh]" onInit={onInitHandler2} />
+        {/* <button onClick={onShoot} className="absolute top-0 z-50">🎉</button> */}
         <Image
           src="/img/cumpleaños.jpg"
           height={1024}
@@ -59,7 +94,7 @@ export default function Home() {
         <div className={(isOpen==2?'pasar2':' pasar4 hidden')+(IsMoreWidth?' max-w-xl h-[100vh]':' w-[100vw] h-[100vh]') +' bg-white text-slate-800 p-8 text-justify flex-col justify-center items-center'}>
           <p className="text-4xl p-5 px-20"><strong>Te Amo</strong>.</p>
           {!isStarted?
-            <div onClick={start} className="flex justify-center flex-col items-center bg-pink-500 cursor-pointer text-white p-4 py-6 rounded-full">
+            <div onClick={start} className="flex justify-center relative z-50 flex-col items-center bg-pink-500 cursor-pointer text-white p-4 py-6 rounded-full">
               <p className=" text-justify"><strong>Presiona</strong></p>
               <p className=" text-justify"><strong>Aqui</strong></p>
             </div>
