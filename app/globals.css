@@ -31,6 +31,11 @@ body {
     text-wrap: balance;
   }
 }
+.aniWord {
+  animation-name: word;
+  animation-duration: 8s;
+  animation-fill-mode: both;
+}
 .pasar {
   animation-name: pasa;
   animation-duration: 0.5s;
@@ -38,12 +43,14 @@ body {
 }
 .pasar2 {
   animation-name: pasa2;
+  animation-delay: 0.5s;
   animation-duration: 0.5s;
   animation-fill-mode: both;
 }
 .pasar3 {
   animation-name: pasa3;
   animation-duration: 0.5s;
+  animation-delay: 0.5s;
   animation-fill-mode: both;
 }
 .pasar4 {
@@ -66,6 +73,7 @@ body {
   object-fit: cover;
   scroll-snap-align: center;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;700&display=swap");
 
 
@@ -133,13 +141,17 @@ body {
   }
 }
 
+@keyframes word {
+  from {@apply hidden text-xl text-transparent;}
+  to {@apply flex text-7xl font-bold text-white;}
+}
 @keyframes pasa {
   from {display: flex;transform: rotate(12deg);}
   to {display: none;transform: rotate(0deg);}
 }
 @keyframes pasa2 {
-  from {display: none;}
-  to {display: flex;}
+  from {display: none;width: 0px; }
+  to {display: flex; @apply w-full}
 }
 @keyframes pasa3 {
   from {display: none;transform: rotate(0deg);}
