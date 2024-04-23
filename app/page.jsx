@@ -110,7 +110,7 @@ export default function Home() {
         </div>
         <div className={(isOpen==2?'pasar2':' pasar4 hidden')+(IsMoreWidth?' max-w-xl h-[100vh]':' w-[100vw] h-[100vh]') +' bg-white min-w-96 text-slate-800 relative p-8 text-justify flex-col justify-center items-center'}>
           <div className="absolute top-0 left-0 w-full h-screen flex justify-center items-center">
-            <p className={(isFinished?'aniWord':'hidden')+" text-xl p-5 px-20"}><strong>Te Amo</strong></p>
+            <p className={(isFinished?'aniWord':'hidden')+" text-xl p-5 px-20"}><strong>Te Amamos</strong></p>
           </div>
           {!isStarted?
             <div onClick={start} className="flex justify-center relative z-50 flex-col items-center bg-pink-500 cursor-pointer text-white p-4 py-6 rounded-full">
